@@ -1,0 +1,22 @@
+.sacks-list-view {
+  position: relative;
+  flex: 1;
+}
+
+.sacks-list-view .header {
+  height: 46px;
+  
+  background: #FFFFFF;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+
+  font-family: Calibri;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 28px;
+  line-height: 34px;
+  color: #083749;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
