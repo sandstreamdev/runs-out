@@ -8,7 +8,6 @@ class BottomNavigation extends PureComponent {
 
     return (
       <div className="bottom-navigation">
-        {/* BottomNavigation {children && children.length} */}
         {children}
       </div>
     );

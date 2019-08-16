@@ -7,6 +7,9 @@ import { ReactComponent as HeartIcon } from '../images/heart.svg';
 import { ReactComponent as ArchiveIcon } from '../images/archive.svg';
 import { ReactComponent as MagnifyIcon } from '../images/magnify.svg';
 import './SacksListView.css';
+import SwipeableList from './SwipeableList';
+import SackListItem from './SackListItem';
+import NewItemLink from './NewItemLink';
 
 class SacksListView extends PureComponent {
   render () {
@@ -18,6 +21,10 @@ class SacksListView extends PureComponent {
         <div className="header">
           <span>Sacks ({sacks.length})</span>
         </div>
+        <SwipeableList>
+          <NewItemLink label="Add Sack" to="/sacks/new" />
+          <SackListItem />
+        </SwipeableList>
         <BottomNavigation>
           <NavigationLink icon={<HomeIcon />} label="All" to="/sacks" active={filter === undefined} />
           <NavigationLink icon={<HeartIcon />} label="Favorities" to="/sacks/favorities" active={filter === "favorities"} />

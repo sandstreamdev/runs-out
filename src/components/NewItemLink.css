@@ -1,0 +1,21 @@
+.new-item-link {
+  height: 40px;
+  min-height: 40px;
+  background: white;
+  padding: 12px 10px 8px 10px;
+  display: flex;
+  text-decoration: none;
+}
+
+.fake-input {
+  background-color: #F1F1F1;
+  border-radius: 5px;
+  flex: 1;
+  color: #959595;
+  font-family: Calibri;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 22px;
+  line-height: 27px;
+  padding: 5px 10px;
+}

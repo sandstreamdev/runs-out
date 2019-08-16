@@ -1,6 +1,8 @@
 .sacks-list-view {
   position: relative;
   flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .sacks-list-view .header {
@@ -19,4 +21,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  z-index: 1;
 }
