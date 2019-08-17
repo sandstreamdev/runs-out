@@ -23,7 +23,45 @@ class SacksListView extends PureComponent {
         </div>
         <SwipeableList>
           <NewItemLink label="Add Sack" to="/sacks/new" />
-          <SackListItem />
+          <SackListItem
+            name="Shopping"
+            description="Sack description..."
+            itemsCount={8}
+            membersCount={3}
+            isFavourite={true}
+          />
+          <SackListItem
+            name="Vacation things"
+            cohort="Family"
+            description="Sack description that can be only one line height..."
+            itemsCount={8}
+            membersCount={2}
+          />
+          <SackListItem
+            name="Books to read"
+            itemsCount={0}
+            membersCount={1}
+          />
+          <SackListItem
+            name="Games to buy"
+            description="Games to buy when price drops."
+            itemsCount={1}
+            membersCount={6}
+            isArchived={true}
+          />
+          <SackListItem
+            name="Missing equipment"
+            cohort="Company"
+            description="Sack description..."
+            membersCount={1}
+          />
+          <SackListItem
+            name="Vacation things"
+            cohort="Company"
+            description="Sack description that can be only one line height..."
+            itemsCount={8}
+            membersCount={2}
+          />
         </SwipeableList>
         <BottomNavigation>
           <NavigationLink icon={<HomeIcon />} label="All" to="/sacks" active={filter === undefined} />

@@ -5,6 +5,7 @@
   padding: 12px 10px 8px 10px;
   display: flex;
   text-decoration: none;
+  border-bottom: 1px solid #C4C4C4;
 }
 
 .fake-input {
