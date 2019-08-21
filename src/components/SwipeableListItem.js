@@ -3,21 +3,6 @@ import React, { PureComponent } from 'react';
 import './SwipeableListItem.css';
 
 class SwipeableListItem extends PureComponent {
-  // DOM Refs
-  listElement;
-  wrapper;
-  backgroundLeft;
-  backgroundRight;
-
-  // Drag & Drop
-  dragStartX = 0;
-  left = 0;
-  dragged = false;
-
-  // FPS Limit
-  startTime;
-  fpsInterval = 1000 / 60;
-
   constructor(props) {
     super(props);
 
@@ -26,14 +11,14 @@ class SwipeableListItem extends PureComponent {
     this.backgroundLeft = null;
     this.backgroundRight = null;
 
-    this.onMouseMove = this.onMouseMove.bind(this);
-    this.onTouchMove = this.onTouchMove.bind(this);
-    this.onDragStartMouse = this.onDragStartMouse.bind(this);
-    this.onDragStartTouch = this.onDragStartTouch.bind(this);
-    this.onDragEndMouse = this.onDragEndMouse.bind(this);
-    this.onDragEndTouch = this.onDragEndTouch.bind(this);
-    this.onDragEnd = this.onDragEnd.bind(this);
-    this.updatePosition = this.updatePosition.bind(this);
+    // Drag & Drop
+    this.dragStartX = 0;
+    this.left = 0;
+    this.dragged = false;
+
+    // FPS Limit
+    this.startTime = null;
+    this.fpsInterval = 1000 / 60;
   }
 
   componentDidMount() {
@@ -46,18 +31,18 @@ class SwipeableListItem extends PureComponent {
     window.removeEventListener("touchend", this.onDragEndTouch);
   }
 
-  onDragStartMouse(evt) {
+  onDragStartMouse = (evt) => {
     this.onDragStart(evt.clientX);
     window.addEventListener("mousemove", this.onMouseMove);
   }
 
-  onDragStartTouch(evt) {
+  onDragStartTouch = (evt) => {
     const touch = evt.targetTouches[0];
     this.onDragStart(touch.clientX);
     window.addEventListener("touchmove", this.onTouchMove);
   }
 
-  onDragStart(clientX) {
+  onDragStart = (clientX) => {
     this.dragged = true;
     this.dragStartX = clientX;
     this.listElement.className = "ListItem";
@@ -65,17 +50,17 @@ class SwipeableListItem extends PureComponent {
     requestAnimationFrame(this.updatePosition);
   }
 
-  onDragEndMouse(evt) {
+  onDragEndMouse = (evt) => {
     window.removeEventListener("mousemove", this.onMouseMove);
     this.onDragEnd();
   }
 
-  onDragEndTouch(evt) {
+  onDragEndTouch = (evt) => {
     window.removeEventListener("touchmove", this.onTouchMove);
     this.onDragEnd();
   }
 
-  onDragEnd() {
+  onDragEnd = () => {
     if (this.dragged) {
       this.dragged = false;
 
@@ -106,14 +91,14 @@ class SwipeableListItem extends PureComponent {
     return (swipingLeft && backgroundLeft) || (swipingRight && backgroundRight)
   }
 
-  onMouseMove(evt) {
+  onMouseMove = (evt) => {
     const delta = evt.clientX - this.dragStartX;
     if (this.shouldMoveItem(delta)) {
       this.left = delta;
     }
   }
 
-  onTouchMove(evt) {
+  onTouchMove = (evt) => {
     const touch = evt.targetTouches[0];
     const delta = touch.clientX - this.dragStartX;
     if (this.shouldMoveItem(delta)) {
@@ -121,7 +106,7 @@ class SwipeableListItem extends PureComponent {
     }
   }
 
-  updatePosition() {
+  updatePosition = () => {
     if (this.dragged) requestAnimationFrame(this.updatePosition);
 
     const now = Date.now();

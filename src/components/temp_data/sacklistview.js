@@ -43,6 +43,22 @@ const sacks = [
     description: 'Sack description that can be only one line height...',
     entriesCount: 8,
     membersCount: 2
+  },
+  {
+    id: '7',
+    name: 'New Project',
+    cohort: 'Company',
+    description: 'Sack description that can be only one line height...',
+    entriesCount: 2,
+    membersCount: 1
+  },
+  {
+    id: '8',
+    name: 'PS4 and games',
+    cohort: 'Company',
+    description: 'Sack description that can be only one line height...',
+    entriesCount: 1,
+    membersCount: 20
   }
 ];
 
