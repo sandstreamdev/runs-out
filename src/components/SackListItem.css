@@ -2,6 +2,7 @@
   background-color: white;
   padding: 10px;
   border-bottom: 1px solid #C4C4C4;
+  flex: 1;
 }
 
 .sack-list-item .label {
@@ -41,6 +42,7 @@
   width: 20px;
   height: 20px;
   margin-right: 4px;
+  fill: #656565;
 }
 
 .sack-list-item .status span {
@@ -77,4 +79,47 @@
 
 .sack-list-item.archived > * {
   opacity: 0.5;
+}
+
+.sack-list-item-swipe {
+  color: white;
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;  
+}
+
+.sack-list-item-swipe.red {
+  background: #CA1C1C;
+}
+
+.sack-list-item-swipe.green {
+  background: #409000;
+  color: white;
+}
+
+.sack-list-item-swipe.left {
+  align-items: flex-end;
+}
+
+.sack-list-item-swipe .content {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  font-family: Calibri;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 12px;
+  width: 80px;
+  max-width: 80px;
+  text-align: center;
+  padding: 8px;
+}
+
+.sack-list-item-swipe svg {
+  fill: white;
+  width: 36px;
+  height: 36px;;
 }
