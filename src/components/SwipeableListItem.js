@@ -6,7 +6,8 @@ class SwipeableListItem extends PureComponent {
   // DOM Refs
   listElement;
   wrapper;
-  background;
+  backgroundLeft;
+  backgroundRight;
 
   // Drag & Drop
   dragStartX = 0;
@@ -22,7 +23,8 @@ class SwipeableListItem extends PureComponent {
 
     this.listElement = null;
     this.wrapper = null;
-    this.background = null;
+    this.backgroundLeft = null;
+    this.backgroundRight = null;
 
     this.onMouseMove = this.onMouseMove.bind(this);
     this.onTouchMove = this.onTouchMove.bind(this);
@@ -32,8 +34,6 @@ class SwipeableListItem extends PureComponent {
     this.onDragEndTouch = this.onDragEndTouch.bind(this);
     this.onDragEnd = this.onDragEnd.bind(this);
     this.updatePosition = this.updatePosition.bind(this);
-
-    this.onSwiped = this.onSwiped.bind(this);
   }
 
   componentDidMount() {
@@ -82,30 +82,42 @@ class SwipeableListItem extends PureComponent {
       const threshold = this.props.threshold || 0.5;
 
       if (this.left < this.listElement.offsetWidth * threshold * -1) {
-        this.left = -this.listElement.offsetWidth * 2;
-        this.wrapper.style.maxHeight = 0;
-        this.onSwiped();
-      } else {
-        this.left = 0;
+        // this.left = -this.listElement.offsetWidth * 2;
+        // this.wrapper.style.maxHeight = 0;
+        // this.left = 0;
+        this.onSwipedLeft();
+      } else if (this.left > this.listElement.offsetWidth * threshold) {
+        // this.left = 0;
+        this.onSwipedRight();
       }
 
+      // for deletion we should remove item
+      this.left = 0;
       this.listElement.className = "BouncingListItem";
       this.listElement.style.transform = `translateX(${this.left}px)`;
     }
   }
 
+  shouldMoveItem = (delta) => {
+    const { backgroundLeft, backgroundRight } = this.props;
+    const swipingLeft = delta < 0;
+    const swipingRight = delta > 0;
+
+    return (swipingLeft && backgroundLeft) || (swipingRight && backgroundRight)
+  }
+
   onMouseMove(evt) {
-    const left = evt.clientX - this.dragStartX;
-    if (left < 0) {
-      this.left = left;
+    const delta = evt.clientX - this.dragStartX;
+    if (this.shouldMoveItem(delta)) {
+      this.left = delta;
     }
   }
 
   onTouchMove(evt) {
     const touch = evt.targetTouches[0];
-    const left = touch.clientX - this.dragStartX;
-    if (left < 0) {
-      this.left = left;
+    const delta = touch.clientX - this.dragStartX;
+    if (this.shouldMoveItem(delta)) {
+      this.left = delta;
     }
   }
 
@@ -119,18 +131,30 @@ class SwipeableListItem extends PureComponent {
       this.listElement.style.transform = `translateX(${this.left}px)`;
 
       const opacity = (Math.abs(this.left) / 100).toFixed(2);
-      if (opacity < 1 && opacity.toString() !== this.background.style.opacity) {
-        this.background.style.opacity = opacity.toString();
+
+      let backgroundToShow = this.left < 0 ? this.backgroundLeft : this.backgroundRight;
+      let backgroundToHide = this.left < 0 ? this.backgroundRight : this.backgroundLeft;
+
+      if (!backgroundToShow) {
+        return;
       }
+
+      if (opacity < 1 && opacity.toString() !== backgroundToShow.style.opacity) {
+        backgroundToShow.style.opacity = opacity.toString();
+        if (backgroundToHide) {
+          backgroundToHide.style.opacity = "0";
+        }
+      }
+
       if (opacity >= 1) {
-        this.background.style.opacity = "1";
+        backgroundToShow.style.opacity = "1";
       }
   
       this.startTime = Date.now();
     }
   }
 
-  onSwiped() {
+  onSwipedLeft = () => {
     const { onSwipeLeft } = this.props;
 
     if (onSwipeLeft) {
@@ -138,18 +162,25 @@ class SwipeableListItem extends PureComponent {
     }
   }
 
+  onSwipedRight = () => {
+    const { onSwipeRight } = this.props;
+
+    if (onSwipeRight) {
+      onSwipeRight();
+    }
+  }
+
   render() {
-    const { background, children } = this.props;
+    const { backgroundLeft, backgroundRight, children } = this.props;
 
     return (
       <div className="Wrapper" ref={div => (this.wrapper = div)}>
-        <div ref={div => (this.background = div)} className="Background">
-          {background ? (
-            background
-          ) : (
-            <span>Delete</span>
-          )}
-        </div>
+        {backgroundRight && <div ref={div => (this.backgroundRight = div)} className="Background">
+          {backgroundRight}
+        </div>}
+        {backgroundLeft && <div ref={div => (this.backgroundLeft = div)} className="Background">
+          {backgroundLeft}
+        </div>}
         <div
           ref={div => (this.listElement = div)}
           onMouseDown={this.onDragStartMouse}

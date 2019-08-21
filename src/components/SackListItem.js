@@ -7,22 +7,46 @@ import { ReactComponent as CohortIcon } from '../images/account-group-outline.sv
 import { ReactComponent as FavouriteIcon } from '../images/heart-outline.svg';
 import { ReactComponent as NotFavouriteIcon } from '../images/heart-broken-outline.svg';
 import { ReactComponent as TrashIcon } from '../images/trash-can-outline.svg';
+import { ReactComponent as MoveToCohortIcon } from '../images/move-to-cohort.svg';
+import { ReactComponent as RemoveFromCohortIcon } from '../images/remove-from-cohort.svg';
 import SwipeableListItem from './SwipeableListItem';
 import './SackListItem.css';
 
 class SackListItem extends PureComponent {
   swipeRightData = () => {
-    const { cohort } = this.props;
+    const { cohort, isArchived } = this.props;
 
-    if (cohort === undefined) {
-      // move to cohort
-      return;
+    if (isArchived) {
+      return {
+        action: null,
+        background: null
+      }
     }
 
-    // remove from cohort
+    if (cohort) {
+      return {
+        action: () => console.info('move to cohort'),
+        background: (
+          <div className="sack-list-item-swipe right green">
+            <div className="content">
+              <MoveToCohortIcon />
+              <span>Move to cohort...</span>
+            </div>
+          </div>
+        )
+      }
+    }
+
     return {
       action: () => console.info('remove from cohort'),
-      background: <span className="swipe-red"></span>
+      background: (
+        <div className="sack-list-item-swipe right red">
+          <div className="content">
+            <RemoveFromCohortIcon />
+            <span>Remove from cohort</span>
+          </div>
+        </div>
+      )
     }
   }
 
@@ -91,7 +115,12 @@ class SackListItem extends PureComponent {
     const swipeRightData = this.swipeRightData();
 
     return (
-      <SwipeableListItem onSwipeLeft={swipeLeftData.action} background={swipeLeftData.background}>
+      <SwipeableListItem
+        onSwipeLeft={swipeLeftData.action}
+        backgroundLeft={swipeLeftData.background}
+        onSwipeRight={swipeRightData.action}
+        backgroundRight={swipeRightData.background}
+      >
         <div className={className}>
           <div className="label">
             <SackIcon />
