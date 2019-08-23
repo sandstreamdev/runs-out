@@ -5,12 +5,13 @@ const sacks = [
     description: 'Sack description...',
     entriesCount: 8,
     membersCount: 3,
+    notificationsCount: 8,
     isFavourite: true
   },
   {
     id: '2',
-    name: 'Vacation things',
-    description: 'Sack description that can be only one line height...',
+    name: 'Vacation things - name that is longer than screen width',
+    description: 'Sack description that can be only one line height, longer than screen width',
     cohortName: 'Family',
     entriesCount: 8,
     membersCount: 2,
