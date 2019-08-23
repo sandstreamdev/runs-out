@@ -6,6 +6,12 @@
   width: 0; /* needed for ellipsis in childs */
 }
 
+.sack-list-item-link {
+  flex: 1;
+  display: flex;
+  text-decoration: none;
+}
+
 .sack-list-item .label {
   display: flex;
   align-items: center;

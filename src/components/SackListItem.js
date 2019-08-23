@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import { Link } from 'react-router-dom';
 
 import { ReactComponent as SackIcon } from '../images/sack.svg';
 import { ReactComponent as ItemsIcon } from '../images/format-list-bulleted.svg';
@@ -101,6 +102,7 @@ class SackListItem extends PureComponent {
       cohort,
       description,
       name,
+      id,
       isArchived,
       isFavourite,
       entriesCount,
@@ -123,32 +125,34 @@ class SackListItem extends PureComponent {
         onSwipeRight={swipeRightData.action}
         backgroundRight={swipeRightData.background}
       >
-        <div className={className}>
-          <div className="label">
-            <SackIcon />
-            <span className="name">{name}</span>
-          </div>
-          {cohort && (
-            <div className="cohort">
-              <CohortIcon />
-              <span>{cohort}</span>
+        <Link to={`/sacks/${id}`} className="sack-list-item-link">
+          <div className={className}>
+            <div className="label">
+              <SackIcon />
+              <span className="name">{name}</span>
             </div>
-          )}
-          {description && <div className="description">{description}</div>}
-          <div className="status">
-            <ItemsIcon />
-            <span>{entriesCount || 0}</span>
-            <MembersIcon />
-            <span>{membersCount || 0}</span>
-            {isFavourite && <FavouriteIcon />}
-            {notificationsCount && (
-              <div className="notifications">
-                <NotificationsIcon />
-                <span>{notificationsCount}</span>
-              </div>)
-            }
+            {cohort && (
+              <div className="cohort">
+                <CohortIcon />
+                <span>{cohort}</span>
+              </div>
+            )}
+            {description && <div className="description">{description}</div>}
+            <div className="status">
+              <ItemsIcon />
+              <span>{entriesCount || 0}</span>
+              <MembersIcon />
+              <span>{membersCount || 0}</span>
+              {isFavourite && <FavouriteIcon />}
+              {notificationsCount && (
+                <div className="notifications">
+                  <NotificationsIcon />
+                  <span>{notificationsCount}</span>
+                </div>)
+              }
+            </div>
           </div>
-        </div>
+        </Link>
       </SwipeableListItem>
     );
   }

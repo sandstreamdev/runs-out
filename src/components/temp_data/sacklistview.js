@@ -1,4 +1,4 @@
-const sacks = [
+export const sacks = [
   {
     id: '1',
     name: 'Shopping',
@@ -63,4 +63,4 @@ const sacks = [
   }
 ];
 
-export { sacks };
+export const getSack = sackId => sacks.find(sack => sack.id === sackId);
