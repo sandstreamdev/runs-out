@@ -10,7 +10,7 @@ function App() {
     <Router>
       <div className="canvas">
         <div className="screen">
-          <TitleBar />
+          <TitleBar notificationsCount={1} />
           <Switch>
             <Route exact path="/" component={() => <Redirect to="/sacks" />}/>
 
