@@ -14,6 +14,18 @@ import NewItemLink from './NewItemLink';
 import { sacks } from './temp_data/sacklistview';
 
 class SacksListView extends PureComponent {
+  filteredSacks = filter => {
+    switch (filter) {
+      case 'favorities':
+        return sacks.filter(sack => sack.isFavourite);
+      case 'archived':
+        return sacks.filter(sack => sack.isArchived);
+      default:
+        return sacks;
+    }
+  }
+
+
   render () {
     const { match: { params: { filter } } } = this.props;
 
@@ -24,13 +36,13 @@ class SacksListView extends PureComponent {
         </div>
         <SwipeableList>
           <NewItemLink label="Add Sack" to="/sacks/new" />
-          { sacks.map(sack => <SackListItem key={sack.id} {...sack} />) }
+          { this.filteredSacks(filter).map(sack => <SackListItem key={sack.id} {...sack} />) }
         </SwipeableList>
         <BottomNavigation>
           <NavigationLink icon={<HomeIcon />} label="All" to="/sacks" active={filter === undefined} />
           <NavigationLink icon={<HeartIcon />} label="Favorities" to="/sacks/favorities" active={filter === "favorities"} />
           <NavigationLink icon={<ArchiveIcon />} label="Archived" to="/sacks/archived" active={filter === "archived"} />
-          <NavigationLink icon={<MagnifyIcon />} label="Search" to="/sacks" active={false} />
+          <NavigationLink icon={<MagnifyIcon />} label="Search" to="/sacks" />
         </BottomNavigation>
       </div>
     );
