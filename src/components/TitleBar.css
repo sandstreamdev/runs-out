@@ -30,4 +30,15 @@
   align-items: center;
   outline: none;
   margin: 0 4px;
+  position: relative;
+}
+
+.titlebar .notifications-indicator {
+  min-width: 8px;
+  min-height: 8px;
+  border-radius: 50%;
+  background: #CA1C1C;
+  position: absolute;
+  right: 8px;
+  top: 4px;
 }

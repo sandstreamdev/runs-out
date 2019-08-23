@@ -14,6 +14,8 @@ class TitleBar extends PureComponent {
   }
 
   render () {
+    const { notificationsCount } = this.props;
+
     return (
       <div className="titlebar">
         <button onClick={this.handleMenuButtonClick}>
@@ -22,6 +24,7 @@ class TitleBar extends PureComponent {
         <span>Appname</span>
         <button onClick={this.handleNotificationButtonClick}>
           <BellIcon />
+          {notificationsCount > 0 && <span className="notifications-indicator" />}
         </button>
       </div>
     );
