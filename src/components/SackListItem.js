@@ -9,6 +9,7 @@ import { ReactComponent as NotFavouriteIcon } from '../images/heart-broken-outli
 import { ReactComponent as TrashIcon } from '../images/trash-can-outline.svg';
 import { ReactComponent as MoveToCohortIcon } from '../images/move-to-cohort.svg';
 import { ReactComponent as RemoveFromCohortIcon } from '../images/remove-from-cohort.svg';
+import { ReactComponent as NotificationsIcon } from '../images/bell-ring-outline.svg';
 import SwipeableListItem from './SwipeableListItem';
 import './SackListItem.css';
 
@@ -103,7 +104,8 @@ class SackListItem extends PureComponent {
       isArchived,
       isFavourite,
       entriesCount,
-      membersCount
+      membersCount,
+      notificationsCount
     } = this.props;
 
     let className = "sack-list-item";
@@ -132,13 +134,19 @@ class SackListItem extends PureComponent {
               <span>{cohort}</span>
             </div>
           )}
-          {description && <span className="description">{description}</span>}
+          {description && <div className="description">{description}</div>}
           <div className="status">
             <ItemsIcon />
             <span>{entriesCount || 0}</span>
             <MembersIcon />
             <span>{membersCount || 0}</span>
             {isFavourite && <FavouriteIcon />}
+            {notificationsCount && (
+              <div className="notifications">
+                <NotificationsIcon />
+                <span>{notificationsCount}</span>
+              </div>)
+            }
           </div>
         </div>
       </SwipeableListItem>
