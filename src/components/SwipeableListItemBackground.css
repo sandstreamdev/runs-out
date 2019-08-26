@@ -1,0 +1,40 @@
+
+.swipeable-list-item-background {
+  color: white;
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;  
+}
+
+.swipeable-list-item-background.red {
+  background: #CA1C1C;
+}
+
+.swipeable-list-item-background.green {
+  background: #409000;
+}
+
+.swipeable-list-item-background.left {
+  align-items: flex-end;
+}
+
+.swipeable-list-item-background .content {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 12px;
+  width: 80px;
+  max-width: 80px;
+  text-align: center;
+  padding: 8px;
+}
+
+.swipeable-list-item-background svg {
+  fill: white;
+  width: 36px;
+  height: 36px;;
+}

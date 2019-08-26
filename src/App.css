@@ -1,5 +1,8 @@
 .canvas {
   font-family: Calibri;
+  font-style: normal;
+  font-weight: normal;
+  
   display: flex;
   align-items: center;
   justify-content: center;

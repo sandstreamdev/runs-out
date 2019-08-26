@@ -13,6 +13,9 @@ import { ReactComponent as HomeIcon } from '../images/home.svg';
 import { ReactComponent as ArchiveIcon } from '../images/archive.svg';
 import { ReactComponent as MagnifyIcon } from '../images/magnify.svg';
 import { ReactComponent as CompletedIcon } from '../images/check-outline.svg';
+import { ReactComponent as ItemsIcon } from '../images/format-list-bulleted.svg';
+import { ReactComponent as MembersIcon } from '../images/account-outline.svg';
+import { ReactComponent as FavouriteIcon } from '../images/heart-outline.svg';
 import { sacksRoute, sackEditRoute } from '../routing/sacks';
 
 import { getSack } from './temp_data/sacklistview';
@@ -33,7 +36,13 @@ class SackView extends PureComponent {
   render() {
     const { match: { params: { filter, sackId } } } = this.props;
     
-    const sack = getSack(sackId);
+    const {
+      description,
+      entriesCount,
+      isFavourite,
+      membersCount,
+      name
+    } = getSack(sackId);
     const entriesToShow = this.filteredEntries(filter);
 
     return (
@@ -43,11 +52,25 @@ class SackView extends PureComponent {
             <Link to={sacksRoute()}>{`< Back`}</Link>
             <span>
               <SackIcon />
-              <div className="title">{sack.name}</div>
+              <div className="title">{name}</div>
             </span>
             <Link to={sackEditRoute(sackId)}>Edit</Link>
           </div>
-          <div>TEST</div>
+          <div className="info">
+            <div className="image">
+              <SackIcon />
+            </div>
+            <div className="data">
+              {description && <div className="description">{description}</div>}
+              <div className="status">
+                <ItemsIcon />
+                <span>{entriesCount || 0}</span>
+                <MembersIcon />
+                <span>{membersCount || 0}</span>
+                {isFavourite && <FavouriteIcon />}
+              </div>
+            </div>
+          </div>
         </div>
         <SwipeableList>
           <NewItemLink label="Add Entry" to={newEntryRoute()} />
