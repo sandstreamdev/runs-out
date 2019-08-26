@@ -5,6 +5,8 @@ export const SacksFilters = {
   FAVORITIES: 'favorities'
 }
 
+export const ValidSacksFilters = Object.values(SacksFilters).join('|');
+
 export const sacksRoute = ({ filter, sackId } = {}) => {
   let route = SACKS;
 

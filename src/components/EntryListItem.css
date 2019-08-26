@@ -1,0 +1,75 @@
+.entry-list-item {
+  padding: 10px;
+  border-bottom: 1px solid #C4C4C4;
+  flex-grow: 1;
+  width: 0; /* needed for ellipsis in childs */
+}
+
+.entry-list-item-link {
+  flex-grow: 1;
+  display: flex;
+  text-decoration: none;
+}
+
+.entry-list-item .name {
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 27px;
+  color: #083749;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.entry-list-item .description {
+  margin-left: 2px;
+  margin-top: 4px;
+  color: #959595;
+  font-size: 14px;
+  line-height: 17px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.entry-list-item .status {
+  display: flex;
+  align-items: center;
+  margin-top: 2px;
+  margin-left: 2px;
+}
+
+
+.entry-list-item .status svg {
+  width: 20px;
+  height: 20px;
+  margin-right: 4px;
+  fill: #656565;
+}
+
+.entry-list-item .status span {
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 22px;
+  color: #083749;
+  margin-right: 16px;
+}
+
+.entry-list-item .status .notifications {
+  display: flex;
+  margin-left: auto;
+  align-items: center;
+}
+
+.entry-list-item .status .notifications span {
+  margin-right: 0;
+  background: #CA1C1C;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 16px;
+}

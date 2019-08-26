@@ -12,13 +12,15 @@ export const entries = [
     description: 'Item description that can be only one line height...',
     commentsCount: 8,
     likesCount: 13,
-    notificationsCount: 2
+    notificationsCount: 2,
+    isVoted: true
   },
   {
     id: 3,
     name: 'Black Tee (Lipton)',
     commentsCount: 12,
-    likesCount: 2
+    likesCount: 2,
+    isDone: true
   },
   {
     id: 4,
