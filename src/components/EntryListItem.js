@@ -27,11 +27,6 @@ class EntryListItem extends PureComponent {
         )
       }
     }
-
-    return {
-      action: null,
-      background: null
-    }
   }
 
   swipeRightData = () => {
@@ -65,10 +60,10 @@ class EntryListItem extends PureComponent {
 
     return (
       <SwipeableListItem
-        onSwipeLeft={swipeLeftData.action}
-        backgroundLeft={swipeLeftData.background}
-        onSwipeRight={swipeRightData.action}
-        backgroundRight={swipeRightData.background}
+        onSwipeLeft={swipeLeftData && swipeLeftData.action}
+        backgroundLeft={swipeLeftData && swipeLeftData.background}
+        onSwipeRight={swipeRightData && swipeRightData.action}
+        backgroundRight={swipeRightData && swipeRightData.background}
       >
         <Link to={`/entries/${id}`} className="entry-list-item-link">
           <div className="entry-list-item">

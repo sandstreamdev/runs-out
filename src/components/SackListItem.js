@@ -12,6 +12,7 @@ import { ReactComponent as MoveToCohortIcon } from '../images/move-to-cohort.svg
 import { ReactComponent as RemoveFromCohortIcon } from '../images/remove-from-cohort.svg';
 import { ReactComponent as NotificationsIcon } from '../images/bell-ring-outline.svg';
 import SwipeableListItem from './SwipeableListItem';
+import SwipeableListItemBackground, { SwipeColor, SwipeDirection } from './SwipeableListItemBackground';
 import './SackListItem.css';
 
 class SackListItem extends PureComponent {
@@ -19,35 +20,18 @@ class SackListItem extends PureComponent {
     const { cohort, isArchived } = this.props;
 
     if (isArchived) {
-      return {
-        action: null,
-        background: null
-      }
-    }
-
-    if (cohort) {
-      return {
-        action: () => console.info('move to cohort'),
-        background: (
-          <div className="sack-list-item-swipe right green">
-            <div className="content">
-              <MoveToCohortIcon />
-              <span>Move to cohort...</span>
-            </div>
-          </div>
-        )
-      }
+      return;
     }
 
     return {
-      action: () => console.info('remove from cohort'),
+      action: () => cohort ? console.info('remove from cohort') : console.info('move to cohort'),
       background: (
-        <div className="sack-list-item-swipe right red">
-          <div className="content">
-            <RemoveFromCohortIcon />
-            <span>Remove from cohort</span>
-          </div>
-        </div>
+        <SwipeableListItemBackground
+          color={cohort ? SwipeColor.RED : SwipeColor.GREEN}
+          direction={SwipeDirection.RIGHT}
+          icon={cohort ? <RemoveFromCohortIcon /> : <MoveToCohortIcon />}
+          label={cohort ? "Remove from cohort" : "Move to cohort..."}
+        />
       )
     }
   }
@@ -59,43 +43,28 @@ class SackListItem extends PureComponent {
       return {
         action: () => console.info('remove'),
         background: (
-          <div className="sack-list-item-swipe left red">
-            <div className="content">
-              <TrashIcon />
-              <span>Remove</span>
-            </div>
-          </div>
+          <SwipeableListItemBackground
+            color={SwipeColor.RED}
+            direction={SwipeDirection.LEFT}
+            icon={<TrashIcon />}
+            label="Remove"
+          />
         )
       };
     }
 
-    if (isFavourite) {
-      return {
-        action: () => console.info('remove from favourities'),
-        background: (
-          <div className="sack-list-item-swipe left red">
-            <div className="content">
-              <NotFavouriteIcon />
-              <span>Remove from favourities</span>
-            </div>
-          </div>
-        )
-      }
-    }
-
     return {
-      action: () => console.info('add to favourities'),
+      action: () => isFavourite ? console.info('remove from favourities') : console.info('Add to favourities'),
       background: (
-        <div className="sack-list-item-swipe left green">
-          <div className="content">
-            <FavouriteIcon />
-            <span>Add to favourities</span>
-          </div>
-        </div>
+        <SwipeableListItemBackground
+          color={isFavourite ? SwipeColor.RED : SwipeColor.GREEN}
+          direction={SwipeDirection.LEFT}
+          icon={isFavourite ? <NotFavouriteIcon/> : <FavouriteIcon />}
+          label={isFavourite ? "Remove from favourities" : "Add to favourities"}
+        />
       )
     }
   }
-
 
   render() {
     const {
@@ -120,10 +89,10 @@ class SackListItem extends PureComponent {
 
     return (
       <SwipeableListItem
-        onSwipeLeft={swipeLeftData.action}
-        backgroundLeft={swipeLeftData.background}
-        onSwipeRight={swipeRightData.action}
-        backgroundRight={swipeRightData.background}
+        onSwipeLeft={swipeLeftData && swipeLeftData.action}
+        backgroundLeft={swipeLeftData && swipeLeftData.background}
+        onSwipeRight={swipeRightData && swipeRightData.action}
+        backgroundRight={swipeRightData && swipeRightData.background}
       >
         <Link to={`/sacks/${id}`} className="sack-list-item-link">
           <div className={className}>
