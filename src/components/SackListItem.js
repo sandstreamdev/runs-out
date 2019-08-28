@@ -68,6 +68,7 @@ class SackListItem extends PureComponent {
 
   render() {
     const {
+      blockSwipe,
       cohort,
       description,
       name,
@@ -89,6 +90,7 @@ class SackListItem extends PureComponent {
 
     return (
       <SwipeableListItem
+        blockSwipe={blockSwipe}
         onSwipeLeft={swipeLeftData && swipeLeftData.action}
         backgroundLeft={swipeLeftData && swipeLeftData.background}
         onSwipeRight={swipeRightData && swipeRightData.action}
