@@ -8,7 +8,7 @@ import SwipeableList from './SwipeableList';
 import EntryListItem from './EntryListItem';
 import NewItemLink from './NewItemLink';
 import { newEntryRoute, EntriesFilters } from '../routing/entries';
-import { ReactComponent as SackIcon } from '../images/sack.svg';
+import { ReactComponent as SackIcon } from '../images/sack-outline.svg';
 import { ReactComponent as HomeIcon } from '../images/home.svg';
 import { ReactComponent as ArchiveIcon } from '../images/archive.svg';
 import { ReactComponent as MagnifyIcon } from '../images/magnify.svg';
@@ -16,7 +16,7 @@ import { ReactComponent as CompletedIcon } from '../images/check-outline.svg';
 import { ReactComponent as ItemsIcon } from '../images/format-list-bulleted.svg';
 import { ReactComponent as MembersIcon } from '../images/account-outline.svg';
 import { ReactComponent as FavouriteIcon } from '../images/heart-outline.svg';
-import { sacksRoute, sackEditRoute } from '../routing/sacks';
+import { sacksRoute, editSackRoute } from '../routing/sacks';
 
 import { getSack } from './temp_data/sacklistview';
 import { entries } from './temp_data/entries';
@@ -54,7 +54,7 @@ class SackView extends PureComponent {
               <SackIcon />
               <div className="title">{name}</div>
             </span>
-            <Link to={sackEditRoute(sackId)}>Edit</Link>
+            <Link to={editSackRoute(sackId)}>Edit</Link>
           </div>
           <div className="info">
             <div className="image">

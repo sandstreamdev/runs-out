@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { Link } from 'react-router-dom';
 
-import { ReactComponent as SackIcon } from '../images/sack.svg';
+import { ReactComponent as SackIcon } from '../images/sack-outline.svg';
 import { ReactComponent as ItemsIcon } from '../images/format-list-bulleted.svg';
 import { ReactComponent as MembersIcon } from '../images/account-outline.svg';
 import { ReactComponent as CohortIcon } from '../images/account-group-outline.svg';

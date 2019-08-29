@@ -48,6 +48,7 @@
 .sacks-view .header svg {
   min-width: 24px;
   min-height: 24px;
+  fill: #083749;
 }
 
 .sacks-view .info {
@@ -67,12 +68,9 @@
 }
 
 .sacks-view .info .image svg {
-  width: 40px;
-  height: 40px;
-}
-
-.sacks-view .info .image svg path {
-  stroke: #656565;
+  width: 44px;
+  height: 44px;
+  fill: #656565;
 }
 
 .sacks-view .info .data {
