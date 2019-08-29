@@ -1,0 +1,122 @@
+.list-item {
+  background-color: white;
+  padding: 10px;
+  border-bottom: 1px solid #C4C4C4;
+  flex: 1;
+  width: 0; /* needed for ellipsis in childs */
+}
+
+.list-item-link {
+  flex: 1;
+  display: flex;
+  text-decoration: none;
+}
+
+.list-item .label {
+  display: flex;
+  align-items: center;
+}
+
+.list-item .label svg {
+  width: 24px;
+  min-width: 24px;
+  max-width: 24px;
+  height: 24px;
+  min-height: 24px;
+  max-height: 24px;
+  fill: #083749;
+}
+
+.list-item .name {
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 27px;
+  color: #083749;
+  margin-left: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.list-item .description {
+  margin-left: 2px;
+  margin-top: 4px;
+  color: #959595;
+  font-size: 14px;
+  line-height: 17px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.list-item .status {
+  display: flex;
+  align-items: center;
+  margin-top: 2px;
+  margin-left: 2px;
+}
+
+.list-item .status svg {
+  width: 20px;
+  min-width: 20px;
+  max-width: 20px;
+  height: 20px;
+  min-height: 20px;
+  max-height: 20px;
+  margin-right: 4px;
+  fill: #656565;
+}
+
+.list-item .status span {
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 22px;
+  color: #083749;
+  margin-right: 12px;
+}
+
+.list-item .status .notifications {
+  display: flex;
+  margin-left: auto;
+  align-items: center;
+}
+
+.list-item .status .notifications span {
+  margin-right: 0;
+  background: #CA1C1C;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 16px;
+}
+
+.list-item .secondary-label {
+  display: flex;
+  align-items: center;
+  margin-left: 3px;
+}
+
+.list-item .secondary-label svg {
+  width: 18px;
+  min-width: 18px;
+  max-width: 18px;
+  height: 18px;
+  min-height: 18px;
+  max-height: 18px;
+  fill: #757575;
+}
+
+.list-item .secondary-label span {
+  font-size: 14px;
+  line-height: 17px;
+  color: #959595;
+  margin-left: 4px;
+}
+
+.list-item.archived > * {
+  opacity: 0.5;
+}
