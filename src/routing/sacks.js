@@ -23,4 +23,4 @@ export const sacksRoute = ({ filter, sackId } = {}) => {
 
 export const newSackRoute = () => `${SACKS}/new`;
 
-export const sackEditRoute = sackId => `${SACKS}/${sackId}/edit`;
+export const editSackRoute = sackId => `${SACKS}/${sackId}/edit`;

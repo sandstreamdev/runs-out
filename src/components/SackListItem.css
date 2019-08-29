@@ -20,6 +20,7 @@
 .sack-list-item .label svg {
   min-width: 24px;
   min-height: 24px;
+  fill: #083749;
 }
 
 .sack-list-item .name {
@@ -118,46 +119,4 @@
 
 .sack-list-item.archived > * {
   opacity: 0.5;
-}
-
-.sack-list-item-swipe {
-  color: white;
-  flex: 1;
-  height: 100%;
-  display: flex;
-  flex-flow: column;
-  justify-content: center;  
-}
-
-.sack-list-item-swipe.red {
-  background: #CA1C1C;
-}
-
-.sack-list-item-swipe.green {
-  background: #409000;
-}
-
-.sack-list-item-swipe.left {
-  align-items: flex-end;
-}
-
-.sack-list-item-swipe .content {
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  font-family: Calibri;
-  font-style: normal;
-  font-weight: 300;
-  font-size: 14px;
-  line-height: 12px;
-  width: 80px;
-  max-width: 80px;
-  text-align: center;
-  padding: 8px;
-}
-
-.sack-list-item-swipe svg {
-  fill: white;
-  width: 36px;
-  height: 36px;;
 }
