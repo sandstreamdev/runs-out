@@ -1,12 +1,14 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Redirect, Switch } from "react-router-dom";
 
+import CohortsListView from './components/CohortsListView';
 import SackView from './components/SackView';
 import SacksListView from './components/SacksListView';
 import TitleBar from './components/TitleBar';
 import './App.css';
 import { ValidSacksFilters } from './routing/sacks';
 import { ValidEntriesFilters } from './routing/entries';
+import { ValidCohortsFilters } from './routing/cohorts';
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
             <Route component={SacksListView} path={`/sacks/:filter(${ValidSacksFilters})?`} exact />
             <Route component={SackView} path={`/sacks/:sackId/:filter(${ValidEntriesFilters})?`} />
 
+            <Route component={CohortsListView} path={`/cohorts/:filter(${ValidCohortsFilters})?`} exact />
+
             {/* <Route component={EntryView} path="/entries/:entryId" exact />
             <Route component={EntryForm} path="/entries/new/:sackId" exact />
             <Route component={EntryForm} path="/entries/:entryId/edit" exact />
@@ -29,8 +33,7 @@ function App() {
             <Route component={CohortForm} path="/cohorts/new" exact />
             <Route component={CohortForm} path="/cohorts/:cohortId/edit" exact />
             <Route component={CohortView} path="/cohorts/:cohortId/:filter?" />
-            <Route component={CohortsListView} path="/cohorts/:filter?" />
-
+            
             <Route component={MembersView} path="/members" />
             <Route component={SettingsView} path="/settings" /> */}
           </Switch>
