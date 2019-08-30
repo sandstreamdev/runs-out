@@ -12,12 +12,12 @@
   text-decoration: none;
 }
 
-.list-item .label {
+.list-item > .label {
   display: flex;
   align-items: center;
 }
 
-.list-item .label svg {
+.list-item > .label > svg {
   width: 24px;
   min-width: 24px;
   max-width: 24px;
@@ -27,7 +27,7 @@
   fill: #083749;
 }
 
-.list-item .name {
+.list-item > .label > .name {
   font-weight: bold;
   font-size: 22px;
   line-height: 27px;
@@ -38,7 +38,7 @@
   text-overflow: ellipsis;
 }
 
-.list-item .description {
+.list-item > .description {
   margin-left: 2px;
   margin-top: 4px;
   color: #959595;
@@ -49,14 +49,14 @@
   text-overflow: ellipsis;
 }
 
-.list-item .status {
+.list-item > .status {
   display: flex;
   align-items: center;
   margin-top: 2px;
   margin-left: 2px;
 }
 
-.list-item .status svg {
+.list-item > .status svg {
   width: 20px;
   min-width: 20px;
   max-width: 20px;
@@ -67,7 +67,7 @@
   fill: #656565;
 }
 
-.list-item .status span {
+.list-item > .status span {
   font-weight: bold;
   font-size: 18px;
   line-height: 22px;
@@ -75,13 +75,13 @@
   margin-right: 12px;
 }
 
-.list-item .status .notifications {
+.list-item > .status .notifications {
   display: flex;
   margin-left: auto;
   align-items: center;
 }
 
-.list-item .status .notifications span {
+.list-item > .status .notifications span {
   margin-right: 0;
   background: #CA1C1C;
   border-radius: 50%;
@@ -94,13 +94,13 @@
   line-height: 16px;
 }
 
-.list-item .secondary-label {
+.list-item > .secondary-label {
   display: flex;
   align-items: center;
   margin-left: 3px;
 }
 
-.list-item .secondary-label svg {
+.list-item > .secondary-label svg {
   width: 18px;
   min-width: 18px;
   max-width: 18px;
@@ -110,7 +110,7 @@
   fill: #757575;
 }
 
-.list-item .secondary-label span {
+.list-item > .secondary-label span {
   font-size: 14px;
   line-height: 17px;
   color: #959595;

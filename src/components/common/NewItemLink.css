@@ -8,13 +8,11 @@
   border-bottom: 1px solid #C4C4C4;
 }
 
-.fake-input {
+.new-item-link > .fake-input {
   background-color: #F1F1F1;
   border-radius: 5px;
   flex: 1;
   color: #959595;
-  font-family: Calibri;
-  font-style: normal;
   font-weight: 300;
   font-size: 22px;
   line-height: 27px;

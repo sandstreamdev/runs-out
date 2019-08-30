@@ -1,15 +1,15 @@
 import React, { PureComponent } from 'react';
-import SwipeableList from './SwipeableList';
-import SwipeableListItem from './SwipeableListItem';
-import ListItem from './ListItem';
 
-import BottomNavigation from './BottomNavigation';
-import NavigationLink from './NavigationLink';
+import SwipeableList from './common/SwipeableList';
+import SwipeableListItem from './common/SwipeableListItem';
+import ListItem from './common/ListItem';
+import BottomNavigation from './common/BottomNavigation';
+import BottomNavigationLink from './common/BottomNavigationLink';
 import { ReactComponent as HomeIcon } from '../images/home.svg';
 import { ReactComponent as ArchiveIcon } from '../images/archive.svg';
 import { ReactComponent as MagnifyIcon } from '../images/magnify.svg';
 import { ReactComponent as CohortIcon } from '../images/account-group-outline.svg';
-import NewItemLink from './NewItemLink';
+import NewItemLink from './common/NewItemLink';
 import { newCohortRoute, cohortsRoute, CohortsFilters } from '../routing/cohorts';
 import './CohortsListView.css';
 import { cohorts } from './temp_data/cohorts';
@@ -42,19 +42,19 @@ class CohortsListView extends PureComponent {
           )) }
         </SwipeableList>
         <BottomNavigation>
-          <NavigationLink
+          <BottomNavigationLink
             icon={<HomeIcon />}
             label="All"
             to={cohortsRoute()}
             active={filter === undefined}
           />
-          <NavigationLink
+          <BottomNavigationLink
             icon={<ArchiveIcon />}
             label="Archived"
             to={cohortsRoute({ filter: CohortsFilters.ARCHIVED })}
             active={filter === CohortsFilters.ARCHIVED}
           />
-          <NavigationLink
+          <BottomNavigationLink
             icon={<MagnifyIcon />}
             label="Search"
             to={cohortsRoute()}

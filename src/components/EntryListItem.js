@@ -6,7 +6,7 @@ import { ReactComponent as DoneIcon } from '../images/check-outline.svg';
 import { ReactComponent as ThumbUpIcon } from '../images/thumb-up-outline.svg';
 import { ReactComponent as ThumbDownIcon } from '../images/thumb-down-outline.svg';
 import { ReactComponent as NotificationsIcon } from '../images/bell-ring-outline.svg';
-import SwipeableListItem from './SwipeableListItem';
+import SwipeableListItem from './common/SwipeableListItem';
 import './EntryListItem.css';
 import SwipeableListItemBackground, { SwipeColor, SwipeDirection } from './SwipeableListItemBackground';
 

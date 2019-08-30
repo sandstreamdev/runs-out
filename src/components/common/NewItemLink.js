@@ -10,7 +10,7 @@ class NewItemLink extends PureComponent {
     return (
       <Link className="new-item-link" to={to}>
         <div className="fake-input">
-          <span className="placeholder">{label}</span>
+          {label}
         </div>
       </Link>
     );

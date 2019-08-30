@@ -1,15 +1,15 @@
 import React, { PureComponent } from 'react';
 
-import BottomNavigation from './BottomNavigation';
-import NavigationLink from './NavigationLink';
+import BottomNavigation from './common/BottomNavigation';
+import BottomNavigationLink from './common/BottomNavigationLink';
 import { ReactComponent as HomeIcon } from '../images/home.svg';
 import { ReactComponent as HeartIcon } from '../images/heart.svg';
 import { ReactComponent as ArchiveIcon } from '../images/archive.svg';
 import { ReactComponent as MagnifyIcon } from '../images/magnify.svg';
 import './SacksListView.css';
-import SwipeableList from './SwipeableList';
+import SwipeableList from './common/SwipeableList';
 import SackListItem from './SackListItem';
-import NewItemLink from './NewItemLink';
+import NewItemLink from './common/NewItemLink';
 import { newSackRoute, sacksRoute, SacksFilters } from '../routing/sacks';
 
 import { sacks } from './temp_data/sacklistview';
@@ -40,25 +40,25 @@ class SacksListView extends PureComponent {
           { sacksToShow.map(sack => <SackListItem key={sack.id} {...sack} />) }
         </SwipeableList>
         <BottomNavigation>
-          <NavigationLink
+          <BottomNavigationLink
             icon={<HomeIcon />}
             label="All"
             to={sacksRoute()}
             active={filter === undefined}
           />
-          <NavigationLink
+          <BottomNavigationLink
             icon={<HeartIcon />}
             label="Favorities"
             to={sacksRoute({ filter: SacksFilters.FAVORITIES })}
             active={filter === SacksFilters.FAVORITIES}
           />
-          <NavigationLink
+          <BottomNavigationLink
             icon={<ArchiveIcon />}
             label="Archived"
             to={sacksRoute({ filter: SacksFilters.ARCHIVED })}
             active={filter === SacksFilters.ARCHIVED}
           />
-          <NavigationLink
+          <BottomNavigationLink
             icon={<MagnifyIcon />}
             label="Search"
             to="/sacks"
