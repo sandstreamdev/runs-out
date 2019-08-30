@@ -1,0 +1,35 @@
+.drawer {
+  position: absolute;
+  z-index: 10;
+  height: 100%;
+  width: 100%;
+  pointer-events: none;
+  background: transparent;
+  transition: background-color .25s ease-in-out;
+}
+
+.drawer.open {
+  background: rgba(0, 0, 0, 0.5);
+  pointer-events: all;
+}
+
+.drawer > .content {
+  background: white;
+  height: 100%;
+  min-width: 300px;
+  width: 300px;
+  max-width: 300px;
+  left: -300px;
+  transition: transform .25s ease-out;
+  pointer-events: all;
+  z-index: 11;
+  overflow: hidden;
+}
+
+.drawer > .content.open {
+  transform: translateX(0);
+}
+
+.drawer > .content.close {
+  transform: translateX(-300px);
+}
