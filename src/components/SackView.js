@@ -7,6 +7,7 @@ import './SackView.css';
 import SwipeableList from './common/SwipeableList';
 import EntryListItem from './EntryListItem';
 import NewItemLink from './common/NewItemLink';
+import ActionBar from './common/ActionBar';
 import { newEntryRoute, EntriesFilters } from '../routing/entries';
 import { ReactComponent as SackIcon } from '../images/sack-outline.svg';
 import { ReactComponent as HomeIcon } from '../images/home.svg';
@@ -48,14 +49,14 @@ class SackView extends PureComponent {
     return (
       <div className="sacks-view">
         <div className="header">
-          <div className="title-bar">
-            <Link to={sacksRoute()}>{`< Back`}</Link>
-            <span>
-              <SackIcon />
-              <div className="title">{name}</div>
-            </span>
-            <Link to={editSackRoute(sackId)}>Edit</Link>
-          </div>
+          <ActionBar
+            leftLabel="< Back"
+            leftTo={sacksRoute()}
+            title={name}
+            titleIcon={<SackIcon />}
+            rightLabel="Edit"
+            rightTo={editSackRoute(sackId)}
+          />
           <div className="info">
             <div className="image">
               <SackIcon />
