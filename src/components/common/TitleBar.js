@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 
-import { ReactComponent as BellIcon } from '../images/bell-ring-outline.svg';
-import { ReactComponent as MenuIcon } from '../images/menu.svg';
+import { ReactComponent as BellIcon } from '../../images/bell-ring-outline.svg';
+import { ReactComponent as MenuIcon } from '../../images/menu.svg';
 import './TitleBar.css';
 
 class TitleBar extends PureComponent {

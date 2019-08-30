@@ -1,12 +1,12 @@
 import React, { PureComponent } from 'react';
 import { Link } from 'react-router-dom';
 
-import BottomNavigation from './BottomNavigation';
-import NavigationLink from './NavigationLink';
+import BottomNavigation from './common/BottomNavigation';
+import BottomNavigationLink from './common/BottomNavigationLink';
 import './SackView.css';
-import SwipeableList from './SwipeableList';
+import SwipeableList from './common/SwipeableList';
 import EntryListItem from './EntryListItem';
-import NewItemLink from './NewItemLink';
+import NewItemLink from './common/NewItemLink';
 import { newEntryRoute, EntriesFilters } from '../routing/entries';
 import { ReactComponent as SackIcon } from '../images/sack-outline.svg';
 import { ReactComponent as HomeIcon } from '../images/home.svg';
@@ -77,25 +77,25 @@ class SackView extends PureComponent {
           { entriesToShow.map(entry => <EntryListItem key={entry.id} {...entry} />) }
         </SwipeableList>
         <BottomNavigation>
-          <NavigationLink
+          <BottomNavigationLink
             icon={<HomeIcon />}
             label="Unhandled"
             to={sacksRoute({ sackId })}
             active={filter === undefined}
           />
-          <NavigationLink
+          <BottomNavigationLink
             icon={<CompletedIcon />}
             label="Completed"
             to={sacksRoute({ sackId, filter: EntriesFilters.COMPLETED })}
             active={filter === EntriesFilters.COMPLETED}
           />
-          <NavigationLink
+          <BottomNavigationLink
             icon={<ArchiveIcon />}
             label="Archived"
             to={sacksRoute({ sackId, filter: EntriesFilters.ARCHIVED })}
             active={filter === EntriesFilters.ARCHIVED}
           />
-          <NavigationLink
+          <BottomNavigationLink
             icon={<MagnifyIcon />}
             label="Search"
             to="/sacks"

@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Redirect, Switch } from "react-router-d
 import CohortsListView from './components/CohortsListView';
 import SackView from './components/SackView';
 import SacksListView from './components/SacksListView';
-import TitleBar from './components/TitleBar';
+import TitleBar from './components/common/TitleBar';
 import './App.css';
 import { ValidSacksFilters } from './routing/sacks';
 import { ValidEntriesFilters } from './routing/entries';

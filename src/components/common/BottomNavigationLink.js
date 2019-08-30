@@ -1,12 +1,12 @@
 import React, { PureComponent } from 'react';
 import { Link } from 'react-router-dom';
 
-import './NavigationLink.css';
+import './BottomNavigationLink.css';
 
-class NavigationLink extends PureComponent {
+class BottomNavigationLink extends PureComponent {
   render() {
     const { active, icon, label, to } = this.props;
-    let className = "navigation-link";
+    let className = "bottom-navigation-link";
     if (active) {
       className += " active";
     }
@@ -20,4 +20,4 @@ class NavigationLink extends PureComponent {
   }
 }
 
-export default NavigationLink;
+export default BottomNavigationLink;

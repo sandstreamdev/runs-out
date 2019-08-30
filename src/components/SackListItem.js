@@ -11,7 +11,7 @@ import { ReactComponent as TrashIcon } from '../images/trash-can-outline.svg';
 import { ReactComponent as MoveToCohortIcon } from '../images/move-to-cohort.svg';
 import { ReactComponent as RemoveFromCohortIcon } from '../images/remove-from-cohort.svg';
 import { ReactComponent as NotificationsIcon } from '../images/bell-ring-outline.svg';
-import SwipeableListItem from './SwipeableListItem';
+import SwipeableListItem from './common/SwipeableListItem';
 import SwipeableListItemBackground, { SwipeColor, SwipeDirection } from './SwipeableListItemBackground';
 import './SackListItem.css';
 
