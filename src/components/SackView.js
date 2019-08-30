@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react';
-import { Link } from 'react-router-dom';
 
 import BottomNavigation from './common/BottomNavigation';
 import BottomNavigationLink from './common/BottomNavigationLink';

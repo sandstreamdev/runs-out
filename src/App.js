@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Redirect, Switch } from "react-router-dom";
 
 import CohortsListView from './components/CohortsListView';
+import DrawerMenu from './components/DrawerMenu';
 import SackView from './components/SackView';
 import SacksListView from './components/SacksListView';
 import TitleBar from './components/common/TitleBar';
@@ -11,11 +12,14 @@ import { ValidEntriesFilters } from './routing/entries';
 import { ValidCohortsFilters } from './routing/cohorts';
 
 function App() {
+  const [menuActive, setMenuActive] = useState(false);
+
   return (
     <Router>
       <div className="canvas">
         <div className="screen">
-          <TitleBar notificationsCount={1} />
+          <DrawerMenu open={menuActive} onHide={() => setMenuActive(false)} />
+          <TitleBar notificationsCount={1} onMenuClick={() => setMenuActive(true)} />
           <Switch>
             <Route exact path="/" component={() => <Redirect to="/sacks" />}/>
 

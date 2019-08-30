@@ -9,16 +9,12 @@ class TitleBar extends PureComponent {
     console.info('Notifications button clicked');
   }
 
-  handleMenuButtonClick = () => {
-    console.info('Menu button clicked');
-  }
-
   render () {
-    const { notificationsCount } = this.props;
+    const { notificationsCount, onMenuClick } = this.props;
 
     return (
       <div className="titlebar">
-        <button onClick={this.handleMenuButtonClick}>
+        <button onClick={onMenuClick}>
           <MenuIcon />
         </button>
         <span>Appname</span>

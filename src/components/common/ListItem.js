@@ -26,13 +26,13 @@ class ListItem extends PureComponent {
       to
     } = this.props;
 
-    let className = "list-item";
+    let className = "list-item-component";
     if (isArchived) {
       className += " archived";
     }
 
     return (
-      <Link to={to} className="list-item-link">
+      <Link to={to} className="list-item-component-link">
         <div className={className}>
           <div className="label">
             {icon && icon}
