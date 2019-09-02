@@ -8,7 +8,6 @@ import { ReactComponent as RestoreIcon } from '../images/restore.svg';
 import { ReactComponent as TrashIcon } from '../images/trash-can-outline.svg';
 import { cohortsRoute } from '../routing/cohorts';
 import SwipeableListItemBackground, { SwipeColor, SwipeDirection } from './SwipeableListItemBackground';
-import './CohortListItem.css';
 
 class CohortListItem extends PureComponent {
   swipeRightData = () => {
