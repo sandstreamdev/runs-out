@@ -1,17 +1,16 @@
 import React, { PureComponent } from 'react';
 
 import SwipeableList from './common/SwipeableList';
-import SwipeableListItem from './common/SwipeableListItem';
-import ListItem from './common/ListItem';
 import BottomNavigation from './common/BottomNavigation';
 import BottomNavigationLink from './common/BottomNavigationLink';
 import { ReactComponent as HomeIcon } from '../images/home.svg';
 import { ReactComponent as ArchiveIcon } from '../images/archive.svg';
 import { ReactComponent as MagnifyIcon } from '../images/magnify.svg';
-import { ReactComponent as CohortIcon } from '../images/account-group-outline.svg';
 import NewItemLink from './common/NewItemLink';
 import { newCohortRoute, cohortsRoute, CohortsFilters } from '../routing/cohorts';
+import CohortListItem from './CohortListItem';
 import './CohortsListView.css';
+
 import { cohorts } from './temp_data/cohorts';
 
 class CohortsListView extends PureComponent {
@@ -35,11 +34,7 @@ class CohortsListView extends PureComponent {
         </div>
         <SwipeableList>
           <NewItemLink label="Add cohort" to={newCohortRoute()} />
-          { cohortsToShow.map(cohort => (
-            <SwipeableListItem key={cohort.id}>
-              <ListItem icon={<CohortIcon />} {...cohort} to={cohortsRoute({ filter, cohortId: cohort.id })} />
-            </SwipeableListItem>
-          )) }
+          {cohortsToShow.map(cohort => <CohortListItem key={cohort.id} {...cohort} />)}
         </SwipeableList>
         <BottomNavigation>
           <BottomNavigationLink
