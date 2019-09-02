@@ -1,14 +1,12 @@
 import React, { PureComponent } from 'react';
-import { Link } from 'react-router-dom';
 
-import { ReactComponent as CommentsIcon } from '../images/comment-outline.svg';
+import ListItem from './common/ListItem';
 import { ReactComponent as DoneIcon } from '../images/check-outline.svg';
 import { ReactComponent as ThumbUpIcon } from '../images/thumb-up-outline.svg';
 import { ReactComponent as ThumbDownIcon } from '../images/thumb-down-outline.svg';
-import { ReactComponent as NotificationsIcon } from '../images/bell-ring-outline.svg';
 import SwipeableListItem from './common/SwipeableListItem';
-import './EntryListItem.css';
 import SwipeableListItemBackground, { SwipeColor, SwipeDirection } from './SwipeableListItemBackground';
+import { entriesRoute } from '../routing/entries';
 
 class EntryListItem extends PureComponent {
   swipeLeftData = () => {
@@ -47,12 +45,8 @@ class EntryListItem extends PureComponent {
 
   render() {
     const {
-      commentsCount,
-      description,
-      favsCount,
-      id,
-      name,
-      notificationsCount
+      blockSwipe,
+      ...rest
     } = this.props;
 
     const swipeLeftData = this.swipeLeftData();
@@ -60,29 +54,13 @@ class EntryListItem extends PureComponent {
 
     return (
       <SwipeableListItem
+        blockSwipe={blockSwipe}
         onSwipeLeft={swipeLeftData && swipeLeftData.action}
         backgroundLeft={swipeLeftData && swipeLeftData.background}
         onSwipeRight={swipeRightData && swipeRightData.action}
         backgroundRight={swipeRightData && swipeRightData.background}
       >
-        <Link to={`/entries/${id}`} className="entry-list-item-link">
-          <div className="entry-list-item">
-            <span className="name">{ name }</span>
-            {description && <div className="description">{description}</div>}
-            <div className="status">
-              <CommentsIcon />
-              <span>{commentsCount || 0}</span>
-              <ThumbUpIcon />
-              <span>{favsCount || 0}</span>
-              {notificationsCount && (
-                <div className="notifications">
-                  <NotificationsIcon />
-                  <span>{notificationsCount}</span>
-                </div>)
-              }
-            </div>
-          </div>
-        </Link>
+        <ListItem {...rest} to={entriesRoute({ entryId: rest.id })} />
       </SwipeableListItem>
     );
   }

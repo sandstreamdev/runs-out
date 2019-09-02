@@ -1,22 +1,26 @@
 import React, { Fragment, PureComponent } from 'react';
 import { Link } from 'react-router-dom';
 
-import { ReactComponent as SackIcon } from '../../images/sack-outline.svg';
+import { ReactComponent as CommentsIcon } from '../../images/comment-outline.svg';
 import { ReactComponent as EntryIcon } from '../../images/format-list-bulleted.svg';
-import { ReactComponent as MemberIcon } from '../../images/account-outline.svg';
 import { ReactComponent as FavouriteIcon } from '../../images/heart-outline.svg';
+import { ReactComponent as MemberIcon } from '../../images/account-outline.svg';
 import { ReactComponent as NotificationsIcon } from '../../images/bell-ring-outline.svg';
+import { ReactComponent as SackIcon } from '../../images/sack-outline.svg';
+import { ReactComponent as ThumbUpIcon } from '../../images/thumb-up-outline.svg';
 
 import './ListItem.css';
 
 class ListItem extends PureComponent {
   render() {
     const {
+      commentsCount,
       description,
       entriesCount,
       icon,
       isArchived,
       isFavourite,
+      likesCount,
       membersCount,
       name,
       notificationsCount,
@@ -49,19 +53,31 @@ class ListItem extends PureComponent {
             {sacksCount !== undefined && (
               <Fragment>
                 <SackIcon />
-                <span>{sacksCount || 0}</span>
+                <span>{sacksCount}</span>
               </Fragment>
             )}
             {entriesCount !== undefined && (
               <Fragment>
                 <EntryIcon />
-                <span>{entriesCount || 0}</span>
+                <span>{entriesCount}</span>
               </Fragment>
             )}
             {membersCount !== undefined && (
               <Fragment>
                 <MemberIcon />
-                <span>{membersCount || 0}</span>
+                <span>{membersCount}</span>
+              </Fragment>
+            )}
+            {commentsCount !== undefined && (
+              <Fragment>
+                <CommentsIcon />
+                <span>{commentsCount}</span>
+              </Fragment>
+            )}
+            {likesCount !== undefined && (
+              <Fragment>
+                <ThumbUpIcon />
+                <span>{likesCount}</span>
               </Fragment>
             )}
             {isFavourite && <FavouriteIcon />}
