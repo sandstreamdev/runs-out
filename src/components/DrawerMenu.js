@@ -12,6 +12,8 @@ import { ReactComponent as PolicyIcon } from '../images/file-document-box-search
 import { ReactComponent as SackIcon } from '../images/sack-outline.svg';
 import { ReactComponent as SettingsIcon } from '../images/settings-outline.svg';
 import Drawer from './common/Drawer';
+import { sacksRoute } from '../routing/sacks';
+import { cohortsRoute } from '../routing/cohorts';
 import './DrawerMenu.css';
 
 class DrawerMenu extends PureComponent {
@@ -42,11 +44,11 @@ class DrawerMenu extends PureComponent {
             </div>
           </div>
           <div className="list">
-            <Link className="list-item" to="/sacks" onClick={onHide}>
+            <Link className="list-item" to={sacksRoute()} onClick={onHide}>
               <SackIcon />
               <span>Sacks ()</span>
             </Link>
-            <Link className="list-item" to="/cohorts" onClick={onHide}>
+            <Link className="list-item" to={cohortsRoute()} onClick={onHide}>
               <CohortIcon />
               <span>Cohorts ()</span>
             </Link>
