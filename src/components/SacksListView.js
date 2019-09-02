@@ -12,7 +12,7 @@ import SackListItem from './SackListItem';
 import NewItemLink from './common/NewItemLink';
 import { newSackRoute, sacksRoute, SacksFilters } from '../routing/sacks';
 
-import { sacks } from './temp_data/sacklistview';
+import { sacks } from './temp_data/sacks';
 
 class SacksListView extends PureComponent {
   filteredSacks = filter => {
