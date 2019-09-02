@@ -1,26 +1,33 @@
 import React, { PureComponent } from 'react';
-import { Link } from 'react-router-dom';
 
-import { ReactComponent as SackIcon } from '../images/sack-outline.svg';
-import { ReactComponent as ItemsIcon } from '../images/format-list-bulleted.svg';
-import { ReactComponent as MembersIcon } from '../images/account-outline.svg';
-import { ReactComponent as CohortIcon } from '../images/account-group-outline.svg';
+import ListItem from './common/ListItem';
 import { ReactComponent as FavouriteIcon } from '../images/heart-outline.svg';
-import { ReactComponent as NotFavouriteIcon } from '../images/heart-broken-outline.svg';
-import { ReactComponent as TrashIcon } from '../images/trash-can-outline.svg';
 import { ReactComponent as MoveToCohortIcon } from '../images/move-to-cohort.svg';
+import { ReactComponent as NotFavouriteIcon } from '../images/heart-broken-outline.svg';
 import { ReactComponent as RemoveFromCohortIcon } from '../images/remove-from-cohort.svg';
-import { ReactComponent as NotificationsIcon } from '../images/bell-ring-outline.svg';
+import { ReactComponent as RestoreIcon } from '../images/restore.svg';
+import { ReactComponent as SackIcon } from '../images/sack-outline.svg';
+import { ReactComponent as TrashIcon } from '../images/trash-can-outline.svg';
 import SwipeableListItem from './common/SwipeableListItem';
 import SwipeableListItemBackground, { SwipeColor, SwipeDirection } from './SwipeableListItemBackground';
-import './SackListItem.css';
+import { sacksRoute } from '../routing/sacks';
 
 class SackListItem extends PureComponent {
   swipeRightData = () => {
     const { cohort, isArchived } = this.props;
 
     if (isArchived) {
-      return;
+      return {
+        action: () => console.info('restore'),
+        background: (
+          <SwipeableListItemBackground
+            color={SwipeColor.GREEN}
+            direction={SwipeDirection.RIGHT}
+            icon={<RestoreIcon />}
+            label="Restore"
+          />
+        )
+      };
     }
 
     return {
@@ -69,21 +76,8 @@ class SackListItem extends PureComponent {
   render() {
     const {
       blockSwipe,
-      cohort,
-      description,
-      name,
-      id,
-      isArchived,
-      isFavourite,
-      entriesCount,
-      membersCount,
-      notificationsCount
+      ...rest
     } = this.props;
-
-    let className = "sack-list-item";
-    if (isArchived) {
-      className += " archived";
-    }
 
     const swipeLeftData = this.swipeLeftData();
     const swipeRightData = this.swipeRightData();
@@ -96,34 +90,7 @@ class SackListItem extends PureComponent {
         onSwipeRight={swipeRightData && swipeRightData.action}
         backgroundRight={swipeRightData && swipeRightData.background}
       >
-        <Link to={`/sacks/${id}`} className="sack-list-item-link">
-          <div className={className}>
-            <div className="label">
-              <SackIcon />
-              <span className="name">{name}</span>
-            </div>
-            {cohort && (
-              <div className="cohort">
-                <CohortIcon />
-                <span>{cohort}</span>
-              </div>
-            )}
-            {description && <div className="description">{description}</div>}
-            <div className="status">
-              <ItemsIcon />
-              <span>{entriesCount || 0}</span>
-              <MembersIcon />
-              <span>{membersCount || 0}</span>
-              {isFavourite && <FavouriteIcon />}
-              {notificationsCount && (
-                <div className="notifications">
-                  <NotificationsIcon />
-                  <span>{notificationsCount}</span>
-                </div>)
-              }
-            </div>
-          </div>
-        </Link>
+        <ListItem icon={<SackIcon />} {...rest} to={sacksRoute({ sackId: rest.id })} />
       </SwipeableListItem>
     );
   }
