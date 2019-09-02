@@ -11,7 +11,6 @@ import { ReactComponent as TrashIcon } from '../images/trash-can-outline.svg';
 import SwipeableListItem from './common/SwipeableListItem';
 import SwipeableListItemBackground, { SwipeColor, SwipeDirection } from './SwipeableListItemBackground';
 import { sacksRoute } from '../routing/sacks';
-import './SackListItem.css';
 
 class SackListItem extends PureComponent {
   swipeRightData = () => {
