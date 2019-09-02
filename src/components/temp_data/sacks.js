@@ -35,7 +35,8 @@ export const sacks = [
     name: 'Missing equipment',
     cohortName: 'Company',
     description: 'Sack description...',
-    membersCount: 1
+    membersCount: 1,
+    entriesCount: 0
   },
   {
     id: '6',

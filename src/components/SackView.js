@@ -18,7 +18,7 @@ import { ReactComponent as MembersIcon } from '../images/account-outline.svg';
 import { ReactComponent as FavouriteIcon } from '../images/heart-outline.svg';
 import { sacksRoute, editSackRoute } from '../routing/sacks';
 
-import { getSack } from './temp_data/sacklistview';
+import { getSack } from './temp_data/sacks';
 import { entries } from './temp_data/entries';
 
 class SackView extends PureComponent {
