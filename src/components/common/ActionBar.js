@@ -16,12 +16,12 @@ class ActionBar extends PureComponent {
 
     return (
       <div className="action-bar">
-        <Link to={leftTo}>{leftLabel}</Link>
-        <span>
+        <Link to={leftTo} className="left-action">{leftLabel}</Link>
+        <div>
           {titleIcon}
           <div className="title">{title}</div>
-        </span>
-        <Link to={rightTo}>{rightLabel}</Link>
+        </div>
+        <Link to={rightTo} className="right-action">{rightLabel}</Link>
       </div>
     )
   }

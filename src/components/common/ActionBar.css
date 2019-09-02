@@ -1,25 +1,49 @@
 .action-bar {
-  min-height: 46px;
+  min-height: 32px;
   font-size: 28px;
   line-height: 34px;
   color: #083749;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0 8px;
+  padding: 0 12px 4px 12px;
+  background-color: #FFFFFF;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
 }
 
-.action-bar > span {
-  flex: 1;
+.action-bar > div {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 8px;
-  width: 0;
+  min-width: 0;
 }
 
-.action-bar > span > .title {
+.action-bar > div > svg {
+  min-width: 24px;
+  min-height: 24px;
+  fill: #083749;
+}
+
+.action-bar > div > .title {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.action-bar > a {
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 27px;
+  color: #083749;
+  text-decoration: none;
+}
+
+.action-bar > .right-action {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.action-bar > .left-action {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }
