@@ -1,36 +1,22 @@
-.sacks-view {
+.sack-view {
   flex: 1;
   display: flex;
   flex-direction: column;
   height: 100%;
 }
 
-.sacks-view .header {
+.sack-view .header {
   background: #FFFFFF;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
   z-index: 1;
 }
 
-.sacks-view .header a {
-  font-weight: bold;
-  font-size: 22px;
-  line-height: 27px;
-  color: #083749;
-  text-decoration: none;
-}
-
-.sacks-view .header svg {
-  min-width: 24px;
-  min-height: 24px;
-  fill: #083749;
-}
-
-.sacks-view .info {
+.sack-view .info {
   display: flex;
   padding: 0 12px 8px 12px;
 }
 
-.sacks-view .info .image {
+.sack-view .info .image {
   min-width: 56px;
   min-height: 56px;
   clip-path: circle(28px at center);
@@ -41,36 +27,36 @@
   margin-right: 8px;
 }
 
-.sacks-view .info .image svg {
+.sack-view .info .image svg {
   width: 44px;
   height: 44px;
   fill: #656565;
 }
 
-.sacks-view .info .data {
+.sack-view .info .data {
   flex-grow: 1;
 }
 
-.sacks-view .info .data .description {
+.sack-view .info .data .description {
   color: #959595;
   font-size: 16px;
 }
 
-.sacks-view .info .data .status {
+.sack-view .info .data .status {
   display: flex;
   align-items: center;
   margin-top: 2px;
   margin-left: 2px;
 }
 
-.sacks-view .info .data .status svg {
+.sack-view .info .data .status svg {
   width: 20px;
   height: 20px;
   margin-right: 4px;
   fill: #656565;
 }
 
-.sacks-view .info .data .status span {
+.sack-view .info .data .status span {
   font-weight: bold;
   font-size: 18px;
   line-height: 22px;

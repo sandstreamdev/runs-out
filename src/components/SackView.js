@@ -46,7 +46,7 @@ class SackView extends PureComponent {
     const entriesToShow = this.filteredEntries(filter);
 
     return (
-      <div className="sacks-view">
+      <div className="sack-view">
         <div className="header">
           <ActionBar
             leftLabel="< Back"
