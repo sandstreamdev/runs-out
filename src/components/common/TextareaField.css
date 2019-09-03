@@ -1,0 +1,30 @@
+.textarea-field-component {
+  display: flex;
+  flex-direction: column;
+}
+
+.textarea-field-component > .label {
+  font-size: 18px;
+  line-height: 22px;
+  color: #083749;
+  padding-bottom: 2px;
+}
+
+.textarea-field-component > textarea {
+  background: #F1F1F1;
+  border-radius: 5px;
+  border: none;
+  font-weight: 300;
+  font-size: 24px;
+  color: #083749;
+  font-family: inherit;
+  padding: 8px;
+  transition: background-color 250ms ease-in-out;
+  resize: none;
+  outline: none;
+  height: 172px;
+}
+
+.textarea-field-component > textarea:focus {
+  background: #08374946;
+}

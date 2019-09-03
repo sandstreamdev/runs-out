@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Redirect, Switch } from "react-router-d
 
 import CohortsListView from './components/CohortsListView';
 import DrawerMenu from './components/DrawerMenu';
+import SackForm from './components/SackForm';
 import SackView from './components/SackView';
 import SacksListView from './components/SacksListView';
 import TitleBar from './components/common/TitleBar';
@@ -23,8 +24,8 @@ function App() {
           <Switch>
             <Route exact path="/" component={() => <Redirect to="/sacks" />}/>
 
-            {/* <Route component={SackForm} path="/sacks/new/:cohortId?" exact />
-            <Route component={SackForm} path="/sacks/:sackId/edit" exact /> */}
+            <Route component={SackForm} path="/sacks/new/:cohortId?" exact />
+            <Route component={SackForm} path="/sacks/:sackId/edit" exact />
             <Route component={SacksListView} path={`/sacks/:filter(${ValidSacksFilters})?`} exact />
             <Route component={SackView} path={`/sacks/:sackId/:filter(${ValidEntriesFilters})?`} />
 
