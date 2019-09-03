@@ -16,23 +16,6 @@
   padding: 0 12px 8px 12px;
 }
 
-.sack-view .info .image {
-  min-width: 56px;
-  min-height: 56px;
-  clip-path: circle(28px at center);
-  background: #F1F1F1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 8px;
-}
-
-.sack-view .info .image svg {
-  width: 44px;
-  height: 44px;
-  fill: #656565;
-}
-
 .sack-view .info .data {
   flex-grow: 1;
 }

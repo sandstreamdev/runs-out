@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 
+import Avatar from './common/Avatar';
 import BottomNavigation from './common/BottomNavigation';
 import BottomNavigationLink from './common/BottomNavigationLink';
 import './SackView.css';
@@ -57,9 +58,7 @@ class SackView extends PureComponent {
             rightTo={editSackRoute(sackId)}
           />
           <div className="info">
-            <div className="image">
-              <SackIcon />
-            </div>
+            <Avatar placeholder={<SackIcon />} width={56} />
             <div className="data">
               {description && <div className="description">{description}</div>}
               <div className="status">

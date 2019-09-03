@@ -1,0 +1,16 @@
+.avatar-component {
+  min-width: var(--avatar-component-width);
+  min-height: var(--avatar-component-width);
+  clip-path: circle(calc(var(--avatar-component-width) / 2) at center);
+  background: #F1F1F1;
+  display: flex;
+  align-self: flex-end;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar-component > svg {
+  width: calc(var(--avatar-component-width) - 10px);
+  height: calc(var(--avatar-component-width) - 10px);
+  fill: #656565;
+}
