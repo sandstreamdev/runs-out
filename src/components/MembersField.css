@@ -1,0 +1,38 @@
+.members-field-component {
+  display: flex;
+  flex-direction: column;
+}
+
+.members-field-component > .label {
+  font-size: 18px;
+  line-height: 22px;
+  color: #083749;
+  padding-bottom: 2px;
+}
+
+.members-field-component > .content, .avatars {
+  display: flex;
+}
+
+.members-field-component > .content > .avatars > * {
+  margin-right: 4px;
+}
+
+.members-field-component > .content > button {
+  align-self: center;
+  margin-left: auto;
+  border: 2px solid #083749;
+  box-sizing: border-box;
+  border-radius: 5px;
+  background: #FFFFFF;
+  display: inline-flex;
+  align-items: center;
+  outline: none;
+  height: 44px;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 24px;
+  font-family: inherit;
+  color: #083749;
+  padding: 0 8px;
+}
