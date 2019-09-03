@@ -57,24 +57,6 @@
   width: 64px;
 }
 
-.drawer-menu > .header > .top-part > .avatar {
-  flex-grow: 1;
-  min-width: 128px;
-  min-height: 128px;
-  clip-path: circle(64px at center);
-  background: #F1F1F1;
-  display: flex;
-  align-self: flex-end;
-  justify-content: center;
-}
-
-
-.drawer-menu > .header > .top-part > .avatar > svg {
-  width: 128px;
-  height: 128px;
-  fill: #656565;
-}
-
 .drawer-menu > .header > .bottom-part {
   display: flex;
   flex-direction: column;

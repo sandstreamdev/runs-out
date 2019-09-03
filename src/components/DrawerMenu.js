@@ -11,6 +11,7 @@ import { ReactComponent as NotificationsIcon } from '../images/bell-ring-outline
 import { ReactComponent as PolicyIcon } from '../images/file-document-box-search-outline.svg';
 import { ReactComponent as SackIcon } from '../images/sack-outline.svg';
 import { ReactComponent as SettingsIcon } from '../images/settings-outline.svg';
+import Avatar from './common/Avatar';
 import Drawer from './common/Drawer';
 import { sacksRoute } from '../routing/sacks';
 import { cohortsRoute } from '../routing/cohorts';
@@ -31,9 +32,7 @@ class DrawerMenu extends PureComponent {
                 <NotificationsIcon />
                 <span>{notificationsCount}</span>
               </div>
-              <div className="avatar">
-                <DefaultAvatarIcon />
-              </div>
+              <Avatar placeholder={<DefaultAvatarIcon />} width={128} />
               <div className="logout">
                 <LogoutIcon />
               </div>
