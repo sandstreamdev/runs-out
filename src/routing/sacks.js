@@ -7,6 +7,11 @@ export const SacksFilters = {
 
 export const ValidSacksFilters = Object.values(SacksFilters).join('|');
 
+export const SackFormActions = {
+  EDIT: 'edit',
+  NEW: 'new'
+}
+
 export const sacksRoute = ({ filter, sackId } = {}) => {
   let route = SACKS;
 

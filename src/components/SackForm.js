@@ -7,11 +7,12 @@ import InputField from './common/InputField';
 import MembersField from './MembersField';
 import TextareaField from './common/TextareaField';
 import { ReactComponent as SackIcon } from '../images/sack-outline.svg';
-import { sacksRoute } from '../routing/sacks';
+import { sacksRoute, SackFormActions } from '../routing/sacks';
 import './SackForm.css';
 
 import { members } from './temp_data/members';
 import { getSack } from './temp_data/sacks';
+import { getCohort } from './temp_data/cohorts';
 
 class SackForm extends PureComponent {
   constructor(props) {
@@ -40,9 +41,14 @@ class SackForm extends PureComponent {
   handleDescriptionChange = ({ target: { value: description } }) => this.setState({ description });
 
   render() {
-    const { match: { params: { sackId } } } = this.props;
+    const { match: { params: { action, sackId, cohortId } } } = this.props;
     const { name, description } = this.state;
     const backRoute = sacksRoute({ sackId });
+    let cohort;
+
+    if (action === SackFormActions.NEW && cohortId) {
+      cohort = getCohort(cohortId);
+    }
     
     return (
       <div className="sack-form">
@@ -75,7 +81,11 @@ class SackForm extends PureComponent {
             label="Members"
             members={members}
           />
-          <SearchField label="Cohort" />
+          <SearchField
+            label="Cohort"
+            value={cohort && cohort.name}
+            onChange={() => {}}
+          />
         </div>
       </div>
     );

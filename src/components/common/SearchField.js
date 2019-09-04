@@ -4,12 +4,12 @@ import './SearchField.css';
 
 class SearchField extends PureComponent {
   render() {
-    const { label } = this.props;
+    const { label, value, onChange } = this.props;
 
     return (
       <div className="search-field-component">
         <span className="label">{label}</span>
-        <input />
+        <input value={value} onChange={onChange} />
       </div>
     );
   }

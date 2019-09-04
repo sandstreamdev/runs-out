@@ -9,7 +9,7 @@ import SackView from './components/SackView';
 import SacksListView from './components/SacksListView';
 import TitleBar from './components/common/TitleBar';
 import './App.css';
-import { ValidSacksFilters } from './routing/sacks';
+import { SackFormActions, ValidSacksFilters } from './routing/sacks';
 import { ValidEntriesFilters } from './routing/entries';
 import { ValidCohortsFilters } from './routing/cohorts';
 
@@ -25,8 +25,8 @@ function App() {
           <Switch>
             <Route exact path="/" component={() => <Redirect to="/sacks" />}/>
 
-            <Route component={SackForm} path="/sacks/new/:cohortId?" exact />
-            <Route component={SackForm} path="/sacks/:sackId/edit" exact />
+            <Route component={SackForm} path={`/sacks/:action(${SackFormActions.NEW})/:cohortId?`} exact />
+            <Route component={SackForm} path={`/sacks/:sackId/:action(${SackFormActions.EDIT})`} exact />
             <Route component={SacksListView} path={`/sacks/:filter(${ValidSacksFilters})?`} exact />
             <Route component={SackView} path={`/sacks/:sackId/:filter(${ValidEntriesFilters})?`} />
 
