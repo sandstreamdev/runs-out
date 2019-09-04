@@ -19,7 +19,7 @@ class SacksListView extends PureComponent {
     switch (filter) {
       case SacksFilters.ARCHIVED:
         return sacks.filter(sack => sack.isArchived);
-      case SacksFilters.FAVORITIES:
+      case SacksFilters.FAVORITES:
         return sacks.filter(sack => sack.isFavourite);
       default:
         return sacks;
@@ -48,9 +48,9 @@ class SacksListView extends PureComponent {
           />
           <BottomNavigationLink
             icon={<HeartIcon />}
-            label="Favorities"
-            to={sacksRoute({ filter: SacksFilters.FAVORITIES })}
-            active={filter === SacksFilters.FAVORITIES}
+            label="Favorites"
+            to={sacksRoute({ filter: SacksFilters.FAVORITES })}
+            active={filter === SacksFilters.FAVORITES}
           />
           <BottomNavigationLink
             icon={<ArchiveIcon />}

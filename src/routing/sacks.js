@@ -2,7 +2,7 @@ const SACKS = '/sacks';
 
 export const SacksFilters = {
   ARCHIVED: 'archived',
-  FAVORITIES: 'favorities'
+  FAVORITES: 'favorites'
 }
 
 export const ValidSacksFilters = Object.values(SacksFilters).join('|');
@@ -21,6 +21,14 @@ export const sacksRoute = ({ filter, sackId } = {}) => {
   return route;
 }
 
-export const newSackRoute = () => `${SACKS}/new`;
+export const newSackRoute = cohortId => {
+  let route = `${SACKS}/new`;
+
+  if (cohortId) {
+    route += `/${cohortId}`;
+  }
+
+  return route;
+}
 
 export const editSackRoute = sackId => `${SACKS}/${sackId}/edit`;

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Redirect, Switch } from "react-router-dom";
 
 import CohortsListView from './components/CohortsListView';
+import CohortView from './components/CohortView';
 import DrawerMenu from './components/DrawerMenu';
 import SackForm from './components/SackForm';
 import SackView from './components/SackView';
@@ -30,6 +31,7 @@ function App() {
             <Route component={SackView} path={`/sacks/:sackId/:filter(${ValidEntriesFilters})?`} />
 
             <Route component={CohortsListView} path={`/cohorts/:filter(${ValidCohortsFilters})?`} exact />
+            <Route component={CohortView} path={`/cohorts/:cohortId/:filter(${ValidSacksFilters})?`} />
 
             {/* <Route component={EntryView} path="/entries/:entryId" exact />
             <Route component={EntryForm} path="/entries/new/:sackId" exact />
@@ -37,7 +39,6 @@ function App() {
 
             <Route component={CohortForm} path="/cohorts/new" exact />
             <Route component={CohortForm} path="/cohorts/:cohortId/edit" exact />
-            <Route component={CohortView} path="/cohorts/:cohortId/:filter?" />
             
             <Route component={MembersView} path="/members" />
             <Route component={SettingsView} path="/settings" /> */}

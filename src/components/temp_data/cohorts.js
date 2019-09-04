@@ -10,7 +10,7 @@ export const cohorts = [
   {
     id: '2',
     name: 'Company',
-    description: 'Sack description that can be only one line height, longer than screen width',
+    description: 'Cohort description that can be only one line height, longer than screen width',
     sacksCount: 8,
     membersCount: 13,
   },
