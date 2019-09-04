@@ -6,6 +6,11 @@ export const CohortsFilters = {
 
 export const ValidCohortsFilters = Object.values(CohortsFilters).join('|');
 
+export const CohortFormActions = {
+  EDIT: 'edit',
+  NEW: 'new'
+}
+
 export const cohortsRoute = ({ filter, cohortId } = {}) => {
   let route = COHORTS;
 
