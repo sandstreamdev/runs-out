@@ -32,7 +32,9 @@ class DrawerMenu extends PureComponent {
                 <NotificationsIcon />
                 <span>{notificationsCount}</span>
               </div>
-              <Avatar placeholder={<DefaultAvatarIcon />} width={128} />
+              <div className="avatar">
+                <Avatar placeholder={<DefaultAvatarIcon />} width={128} />
+              </div>
               <div className="logout">
                 <LogoutIcon />
               </div>

@@ -48,6 +48,12 @@
   line-height: 16px;
 }
 
+.drawer-menu > .header > .top-part > .avatar {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
+
 .drawer-menu > .header > .top-part > .logout {
   display: flex;
   justify-content: flex-end;
@@ -83,6 +89,7 @@
   flex-grow: 1;
   background-color: white;
   padding: 16px;
+  overflow-y: scroll;
 }
 
 .drawer-menu > .list > .list-item {
