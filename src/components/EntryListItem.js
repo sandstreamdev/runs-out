@@ -1,10 +1,10 @@
 import React, { PureComponent } from 'react';
+import { SwipeableListItem } from '@sandstreamdev/react-swipeable-list';
 
 import ListItem from './common/ListItem';
 import { ReactComponent as DoneIcon } from '../images/check-outline.svg';
 import { ReactComponent as ThumbUpIcon } from '../images/thumb-up-outline.svg';
 import { ReactComponent as ThumbDownIcon } from '../images/thumb-down-outline.svg';
-import SwipeableListItem from './common/SwipeableListItem';
 import SwipeableListItemBackground, { SwipeColor, SwipeDirection } from './SwipeableListItemBackground';
 import { entriesRoute } from '../routing/entries';
 
@@ -15,7 +15,7 @@ class EntryListItem extends PureComponent {
     if (!isDone) {
       return {
         action: () => console.info('Set as done'),
-        background: (
+        content: (
           <SwipeableListItemBackground
             color={SwipeColor.GREEN}
             direction={SwipeDirection.LEFT}
@@ -32,7 +32,7 @@ class EntryListItem extends PureComponent {
 
     return {
       action: () => isVoted ? console.info('downvote') : console.info('upvote'),
-      background: (
+      content: (
         <SwipeableListItemBackground
           color={isVoted ? SwipeColor.RED : SwipeColor.GREEN}
           direction={SwipeDirection.RIGHT}
@@ -55,10 +55,8 @@ class EntryListItem extends PureComponent {
     return (
       <SwipeableListItem
         blockSwipe={blockSwipe}
-        onSwipeLeft={swipeLeftData && swipeLeftData.action}
-        backgroundLeft={swipeLeftData && swipeLeftData.background}
-        onSwipeRight={swipeRightData && swipeRightData.action}
-        backgroundRight={swipeRightData && swipeRightData.background}
+        swipeLeft={swipeLeftData}
+        swipeRight={swipeRightData}
       >
         <ListItem {...rest} to={entriesRoute({ entryId: rest.id })} />
       </SwipeableListItem>

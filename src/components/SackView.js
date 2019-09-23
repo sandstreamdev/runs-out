@@ -1,10 +1,10 @@
 import React, { PureComponent } from 'react';
+import { SwipeableList } from '@sandstreamdev/react-swipeable-list';
 
 import Avatar from './common/Avatar';
 import BottomNavigation from './common/BottomNavigation';
 import BottomNavigationLink from './common/BottomNavigationLink';
 import './SackView.css';
-import SwipeableList from './common/SwipeableList';
 import EntryListItem from './EntryListItem';
 import NewItemLink from './common/NewItemLink';
 import ActionBar from './common/ActionBar';

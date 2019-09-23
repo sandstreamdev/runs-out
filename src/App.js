@@ -13,6 +13,7 @@ import './App.css';
 import { SackFormActions, ValidSacksFilters } from './routing/sacks';
 import { ValidEntriesFilters } from './routing/entries';
 import { CohortFormActions, ValidCohortsFilters } from './routing/cohorts';
+import "@sandstreamdev/react-swipeable-list/dist/react-swipeable-list.cjs.css";
 
 function App() {
   const [menuActive, setMenuActive] = useState(false);
