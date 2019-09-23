@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import { SwipeableList } from '@sandstreamdev/react-swipeable-list';
 
 import ActionBar from './common/ActionBar';
 import Avatar from './common/Avatar';
@@ -6,7 +7,6 @@ import BottomNavigation from './common/BottomNavigation';
 import BottomNavigationLink from './common/BottomNavigationLink';
 import NewItemLink from './common/NewItemLink';
 import SackListItem from './SackListItem';
-import SwipeableList from './common/SwipeableList';
 import { ReactComponent as ArchiveIcon } from '../images/archive.svg';
 import { ReactComponent as CohortIcon } from '../images/account-group-outline.svg';
 import { ReactComponent as FavouriteIcon } from '../images/heart.svg';

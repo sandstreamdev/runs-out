@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import { SwipeableList } from '@sandstreamdev/react-swipeable-list';
 
 import BottomNavigation from './common/BottomNavigation';
 import BottomNavigationLink from './common/BottomNavigationLink';
@@ -7,7 +8,6 @@ import { ReactComponent as HeartIcon } from '../images/heart.svg';
 import { ReactComponent as ArchiveIcon } from '../images/archive.svg';
 import { ReactComponent as MagnifyIcon } from '../images/magnify.svg';
 import './SacksListView.css';
-import SwipeableList from './common/SwipeableList';
 import SackListItem from './SackListItem';
 import NewItemLink from './common/NewItemLink';
 import { newSackRoute, sacksRoute, SacksFilters } from '../routing/sacks';
@@ -26,7 +26,7 @@ class SacksListView extends PureComponent {
     }
   }
 
-  render () {
+  render() {
     const { match: { params: { filter } } } = this.props;
     const sacksToShow = this.filteredSacks(filter);
 

@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import { SwipeableListItem } from '@sandstreamdev/react-swipeable-list';
 
 import ListItem from './common/ListItem';
 import { ReactComponent as FavouriteIcon } from '../images/heart-outline.svg';
@@ -8,7 +9,6 @@ import { ReactComponent as RemoveFromCohortIcon } from '../images/remove-from-co
 import { ReactComponent as RestoreIcon } from '../images/restore.svg';
 import { ReactComponent as SackIcon } from '../images/sack-outline.svg';
 import { ReactComponent as TrashIcon } from '../images/trash-can-outline.svg';
-import SwipeableListItem from './common/SwipeableListItem';
 import SwipeableListItemBackground, { SwipeColor, SwipeDirection } from './SwipeableListItemBackground';
 import { sacksRoute } from '../routing/sacks';
 
@@ -19,7 +19,7 @@ class SackListItem extends PureComponent {
     if (isArchived) {
       return {
         action: () => console.info('restore'),
-        background: (
+        content: (
           <SwipeableListItemBackground
             color={SwipeColor.GREEN}
             direction={SwipeDirection.RIGHT}
@@ -32,7 +32,7 @@ class SackListItem extends PureComponent {
 
     return {
       action: () => cohort ? console.info('remove from cohort') : console.info('move to cohort'),
-      background: (
+      content: (
         <SwipeableListItemBackground
           color={cohort ? SwipeColor.RED : SwipeColor.GREEN}
           direction={SwipeDirection.RIGHT}
@@ -49,7 +49,7 @@ class SackListItem extends PureComponent {
     if (isArchived) {
       return {
         action: () => console.info('remove'),
-        background: (
+        content: (
           <SwipeableListItemBackground
             color={SwipeColor.RED}
             direction={SwipeDirection.LEFT}
@@ -62,11 +62,11 @@ class SackListItem extends PureComponent {
 
     return {
       action: () => isFavourite ? console.info('remove from favourities') : console.info('Add to favourities'),
-      background: (
+      content: (
         <SwipeableListItemBackground
           color={isFavourite ? SwipeColor.RED : SwipeColor.GREEN}
           direction={SwipeDirection.LEFT}
-          icon={isFavourite ? <NotFavouriteIcon/> : <FavouriteIcon />}
+          icon={isFavourite ? <NotFavouriteIcon /> : <FavouriteIcon />}
           label={isFavourite ? "Remove from favourities" : "Add to favourities"}
         />
       )
@@ -85,10 +85,8 @@ class SackListItem extends PureComponent {
     return (
       <SwipeableListItem
         blockSwipe={blockSwipe}
-        onSwipeLeft={swipeLeftData && swipeLeftData.action}
-        backgroundLeft={swipeLeftData && swipeLeftData.background}
-        onSwipeRight={swipeRightData && swipeRightData.action}
-        backgroundRight={swipeRightData && swipeRightData.background}
+        swipeLeft={swipeLeftData}
+        swipeRight={swipeRightData}
       >
         <ListItem icon={<SackIcon />} {...rest} to={sacksRoute({ sackId: rest.id })} />
       </SwipeableListItem>

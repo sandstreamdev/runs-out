@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
+import { SwipeableListItem } from '@sandstreamdev/react-swipeable-list';
 
 import ListItem from './common/ListItem';
-import SwipeableListItem from './common/SwipeableListItem';
 import { ReactComponent as CohortIcon } from '../images/account-group-outline.svg';
 import { ReactComponent as LeaveCohortIcon } from '../images/exit-run.svg';
 import { ReactComponent as RestoreIcon } from '../images/restore.svg';
@@ -19,7 +19,7 @@ class CohortListItem extends PureComponent {
 
     return {
       action: () => console.info('restore cohort'),
-      background: (
+      content: (
         <SwipeableListItemBackground
           color={SwipeColor.GREEN}
           direction={SwipeDirection.RIGHT}
@@ -35,7 +35,7 @@ class CohortListItem extends PureComponent {
 
     return {
       action: () => isArchived ? console.info('remove') : console.info('leave cohort'),
-      background: (
+      content: (
         <SwipeableListItemBackground
           color={SwipeColor.RED}
           direction={SwipeDirection.LEFT}
@@ -58,10 +58,8 @@ class CohortListItem extends PureComponent {
     return (
       <SwipeableListItem
         blockSwipe={blockSwipe}
-        onSwipeLeft={swipeLeftData && swipeLeftData.action}
-        backgroundLeft={swipeLeftData && swipeLeftData.background}
-        onSwipeRight={swipeRightData && swipeRightData.action}
-        backgroundRight={swipeRightData && swipeRightData.background}
+        swipeLeft={swipeLeftData}
+        swipeRight={swipeRightData}
       >
         <ListItem icon={<CohortIcon />} {...rest} to={cohortsRoute({ cohortId: rest.id })} />
       </SwipeableListItem>

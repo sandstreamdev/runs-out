@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
+import { SwipeableList } from '@sandstreamdev/react-swipeable-list';
 
-import SwipeableList from './common/SwipeableList';
 import BottomNavigation from './common/BottomNavigation';
 import BottomNavigationLink from './common/BottomNavigationLink';
 import { ReactComponent as HomeIcon } from '../images/home.svg';
